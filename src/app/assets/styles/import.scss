@@ -1,0 +1,96 @@
+//
+// Color Variables
+//
+$clear: transparent;
+$white: rgba(255, 255, 255, 1);         // White -- #ffffff
+$black: rgba(0, 0, 0, 1);               // Black -- #000000
+$blue: rgba(0, 174, 239, 1);            // Purolite Blue -- #00aeef
+$orange: rgba(254, 156, 18, 1);         // Accent Orange -- #fe9c12
+$verylitegrey: rgba(239, 239 , 239, 1);     // Very Lite Grey -- #efefe
+$litegrey: rgba(204, 204 , 204, 1);     // Lite Grey -- #cccccc
+$medgrey: rgba(153, 153 , 153, 1);      // Medium Grey -- #999999
+$darkgrey: rgba(51, 51 , 51, 1);        // Dark Grey -- #333333
+
+//
+// Transition Mixins
+//
+
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+@mixin transition-delay($val...){
+  -webkit-transition-delay: ($val);
+  -moz-transition-delay: ($val);
+  -o-transition-delay: ($val);
+  transition-delay: ($val);
+}
+
+
+//
+// Box-Shadow Mixins
+//
+
+@mixin box-shadow($str...) {
+  -webkit-box-shadow: $str;
+  -moz-box-shadow:  $str;
+  box-shadow: $str;
+}
+@mixin box-shadow($str, $inset: false) {
+  @if $inset {
+    -webkit-box-shadow:inset $str;
+    -moz-box-shadow:inset $str;
+    box-shadow:inset $str;
+  } @else {
+    -webkit-box-shadow: $str;
+    -moz-box-shadow: $str;
+    box-shadow: $str;
+  }
+}
+
+
+//
+// Transform + Rotate Mixins
+//
+
+@mixin transform($val...) {
+  -webkit-transform: translate3d($val);
+  -moz-transform: translate3d($val);
+  -ms-transform: translate3d($val);
+  transform: translate3d($val);
+}
+@mixin rotate($val...) {
+  -webkit-transform: rotate($val);
+  -moz-transform: rotate($val);
+  -ms-transform: rotate($val);
+  -o-transform: rotate($val);
+  transform: rotate($val);
+}
+
+
+//
+// Gradient Mixin
+//
+
+@mixin halfGradient($top, $bottom){
+  background: $top; /* Old browsers */
+  background: -moz-linear-gradient(top,  $top 50%, $bottom 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(50%,$top), color-stop(100%,$bottom)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  $top 50%,$bottom 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  $top 50%,$bottom 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  $top 50%,$bottom 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  $top 50%,$bottom 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+}
+
+@mixin overlay($r, $g, $b, $amount) {
+  -moz-transition: all 150ms ease-in-out;
+  -ms-transition: all 150ms ease-in-out;
+  -o-transition: all 150ms ease-in-out;
+  -webkit-transition: all 150ms ease-in-out;
+  transition: all 150ms ease-in-out;
+  background: rgba($r, $g, $b, $amount);
+}

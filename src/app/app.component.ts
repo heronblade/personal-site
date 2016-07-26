@@ -7,7 +7,7 @@ import { HomePageComponent } from './components/home-page/home-page.component';
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.css'],
-  directives: [HomePageComponent]
+  directives: [HomePageComponent, ROUTER_DIRECTIVES],
 })
 
 export class AppComponent {

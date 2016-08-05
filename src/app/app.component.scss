@@ -3,9 +3,14 @@
 h1 {
   color: green;
 }
-md-toolbar {
+md-toolbar.top-nav {
   box-shadow: 0 2px 5px 0 rgba(0,0,0,0.26);
   padding: 0;
+  @include zIndex(5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 
 nav {

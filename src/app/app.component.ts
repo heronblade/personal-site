@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ROUTER_DIRECTIVES } from '@angular/router';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { MdIcon, MdIconRegistry } from '@angular2-material/icon';
@@ -14,6 +14,10 @@ import { MD_TOOLBAR_DIRECTIVES } from '@angular2-material/toolbar';
   providers: [MdIconRegistry]
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'app works!';
+
+  ngOnInit() {
+    console.log('init');
+  }
 }
